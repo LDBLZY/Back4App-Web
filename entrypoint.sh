@@ -19,12 +19,12 @@ WWW=4
 cat config.json | base64 > config
 rm -f config.json
 
-# argo与加密方案出自fscarmen
-#wget -N https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64
-#chmod +x cloudflared-linux-amd64
-#./cloudflared-linux-amd64 tunnel --url http://localhost:8080 --no-autoupdate > argo.log 2>&1 &
-#sleep 10
-#ARGO=$(cat argo.log | grep -oE "https://.*[a-z]+cloudflare.com" | sed "s#https://##")
+#argo与加密方案出自fscarmen
+wget -N https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64
+chmod +x cloudflared-linux-amd64
+./cloudflared-linux-amd64 tunnel --url http://localhost:8080 --no-autoupdate > argo.log 2>&1 &
+sleep 10
+ARGO=$(cat argo.log | grep -oE "https://.*[a-z]+cloudflare.com" | sed "s#https://##")
 
 xver=`./$xpid version | sed -n 1p | awk '{print $2}'`
 UA_Browser="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.87 Safari/537.36"
@@ -64,6 +64,7 @@ vl----------------------------------------------------------------vl
 443、2053、2083、2087、2096、8443
 80、8080、8880、2052、2082、2086、2095
 $uuid
+$ARGO
 </div>
 </body>
 </html>
