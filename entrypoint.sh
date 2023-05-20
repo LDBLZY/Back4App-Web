@@ -14,8 +14,8 @@ wget -N https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download
 chmod a+x xray && mv xray $xpid
 sed -i "s/uuid/$uuid/g" ./config.json
 sed -i "s/uuid/$uuid/g" /etc/nginx/nginx.conf
-WWW=4
-[ -n "${WWW}" ] && rm -rf /usr/share/nginx/* && wget -c -P /usr/share/nginx "https://gitlab.com/rwkgyg/doprax-xray/-/raw/main/3w/html${WWW}.zip" && unzip -o "/usr/share/nginx/html${WWW}.zip" -d /usr/share/nginx/html
+#WWW=4
+#[ -n "${WWW}" ] && rm -rf /usr/share/nginx/* && wget -c -P /usr/share/nginx "https://gitlab.com/rwkgyg/doprax-xray/-/raw/main/3w/html${WWW}.zip" && unzip -o "/usr/share/nginx/html${WWW}.zip" -d /usr/share/nginx/html
 cat config.json | base64 > config
 rm -f config.json
 
